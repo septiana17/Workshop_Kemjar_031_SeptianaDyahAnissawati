@@ -1,6 +1,6 @@
 ## ✨ About Me
 
-Septiana Dyah Anissawati
+Septiana Dyah Anissawati\
 NRP. 3122640031
 
 
