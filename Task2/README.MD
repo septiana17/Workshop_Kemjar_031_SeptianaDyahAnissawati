@@ -6,7 +6,7 @@
 </h3>
 <br>
 <p align="center">
-  <img src="../image/Logo_Pens.png" alt="Size Limit CLI" width="300">
+  <img src="../image/Logo_PENS.png" alt="Size Limit CLI" width="300">
 </p>
 <br>
 <p align="center">
@@ -34,7 +34,7 @@
 ## Laporan
 
 ## Broken Access Control
-![Screenshot](../../image/task-2/0.png)
+![Screenshot](../image/task-2/0.png)
 
 Broken access control adalah celah keamanan pada sebuah sistem yang memungkinkan pengguna atau entitas yang tidak sah untuk mendapatkan akses ke sumber daya yang harusnya tidak dapat diakses. Contoh sumber daya yang terkait dengan kontrol akses meliputi halaman web, data, file, dan fungsi sistem.
 
