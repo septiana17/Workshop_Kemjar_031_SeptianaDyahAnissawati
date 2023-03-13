@@ -70,27 +70,27 @@ Oleh karena itu, pengguna disarankan untuk menggunakan Burp Suite saat mengakses
 ### A. Cek Kelengkapan
 
 1. Cek Versi Java
-![Screenshot](../../image/task-2/1.png)
+![Screenshot](../image/task-2/1.png)
 
 Pada sistem operasi saya sudah terinstal java versi 17 dengan bergitu minimum requirement sudah terpenuhi.
 
 2. Cek Burpsuite
-![Screenshot](../../image/task-2/2.png)
+![Screenshot](../image/task-2/2.png)
 
 Buka burpsuite yang sudah ada di sistem operasi.
 
 3. Jalankan OWASP 10 Juice Shop
-![Screenshot](../../image/task-2/3.png)
+![Screenshot](../image/task-2/3.png)
 
 4. Buka Burpsuite
-![Screenshot](../../image/task-2/4.png)
+![Screenshot](../image/task-2/4.png)
 
 5. Buka OWASP 10 Juice Shop
-![Screenshot](../../image/task-2/5.png)
+![Screenshot](../image/task-2/5.png)
 
 Pertama akan dilakukan ngetrace dari HTPP request, memilih proxy dan pilih HTPP history. Setelah itu buka browser dan membuka halaman juice shop (http://localhost:3000/)
 
-![Screenshot](../../image/task-2/6.png)
+![Screenshot](../image/task-2/6.png)
 
 Setelah login saya menambahkan 1 apple pomance dan 1 apple pomace delama keranjang di juice shop.
 
@@ -98,25 +98,25 @@ Setelah login saya menambahkan 1 apple pomance dan 1 apple pomace delama keranja
 
 1. Pergi ke burpsuite, pilih tab proxy > HTTP Proxy
 
-    ![Screenshot](../../image/task-2/7.png)
+    ![Screenshot](../image/task-2/7.png)
 
     Setelah itu buka burp suite dan trace requestnya, pilih trace yang mendapatakan response GET dengan status 200 maka akan ditampilkan isi keranjang yang sudah di masukkan tadi.
 
 2. Pergi ke burp suite, pada tab Repeater
 
-    ![Screenshot](../../image/task-2/8.png)
+    ![Screenshot](../image/task-2/8.png)
 
     Setelah itu maka akan keluar informasi, jika dilihat request yaitu menggunakan API dan usernya adalah 6. Lalu dilanjutkan dengan mengirim request ke repeater dan terlihat terdapat 2 item yaitu apple pomace da apple juice.
 
 3. Langkah selanjutnya mengubah id user pada API Request
 
-    ![Screenshot](../../image/task-2/9.png)
+    ![Screenshot](../image/task-2/9.png)
 
     Selanjutnya saya mencoba nengubah id user dari API request, disini saya mengubah ke id user 2, maka akan terlihat basket untuk id user nomor 2. Selanjutnya buka fitur intercept yang ada di burpsuite, aktifkan fitu intercept dan di juice shop tekan home page dan tekan basket. Kemudian terlihat request basket, dan saya mencoba mengubah id user menjadi 2 lalu klik forward.
 
 4. Hasil
 
-    ![Screenshot](../../image/task-2/10.png)
+    ![Screenshot](../image/task-2/10.png)
 
     Maka di browser akan tertampil basket dari user dengan id 2.
 
@@ -124,7 +124,7 @@ Setelah login saya menambahkan 1 apple pomance dan 1 apple pomace delama keranja
 
 Tahap ini akan memanipulasi isi basket dari user lain, berikut hasilnya.
 
-    ![Screenshot](../../image/task-2/11.png)
+![Screenshot](../image/task-2/11.png)
 
 ### D. Admin Section   
 
@@ -132,63 +132,63 @@ Pada tahap ini akan login ke halaman admin.
 
 1.	Buat file.txt yang berisikan password random
 
-    ![Screenshot](../../image/task-2/12.png)
+    ![Screenshot](../image/task-2/12.png)
 
     Pertama buat terlebih dahulu file.txt dengan mengisi password random, dan disini saya menulis 20 password random.
 
 2.	Review produk
 
-    ![Screenshot](../../image/task-2/13.png)
+    ![Screenshot](../image/task-2/13.png)
 
     Selanjutnya saya mencari tahu terlebih dahulu mengetahui email dari admin, disini saya menemukan email admin di salah satu item yang memiliki reviews.
 
 3.	Buka burp suite, pilih tab Target > Scope
 
-    ![Screenshot](../../image/task-2/14.png)
+    ![Screenshot](../image/task-2/14.png)
 
 4.	Pilih tab Proxy > Options
 
-    ![Screenshot](../../image/task-2/15.png)
+    ![Screenshot](../image/task-2/15.png)
 
     Pada proxy setting centang “Is In Target Scope”. Selanjutnya kembali ke halaman login, masukkan email dan password dari admin dengan mengisi password secara random. Sebelum klik login aktifkan intercept dan tekan login.
 
 5.	Pilih Proxy > Intercept on
 
-    ![Screenshot](../../image/task-2/16.png)
+    ![Screenshot](../image/task-2/16.png)
 
     Pada intercept klik forward maka akan keluar admin dan password yang telah diinputkan tadi.
 
 6. Pilih Intruder > Payload
 
-    ![Screenshot](../../image/task-2/17.png)
+    ![Screenshot](../image/task-2/17.png)
 
     Kemudian kirim ke intruder, bersihkan target untuk semua burte force dengan menekan clear.
 
 7. Spesifikasi target password
 
-    ![Screenshot](../../image/task-2/18.png)
+    ![Screenshot](../image/task-2/18.png)
 
     Setelah itu pilih target burtforce yang mana adalah password dan tekan add.
 
 8. Burte Force
 
-    ![Screenshot](../../image/task-2/19.png)
+    ![Screenshot](../image/task-2/19.png)
 
     Pada menu playload, inputkan file.txt yang sudah dibuat tadi sebagai password bank yang nanti akan digunakan untuk burte force.
 
 9. Start Attcaks
 
-    ![Screenshot](../../image/task-2/20.png)
+    ![Screenshot](../image/task-2/20.png)
 
 10. Mencari password yang benar
 
-    ![Screenshot](../../image/task-2/21.png)
+    ![Screenshot](../image/task-2/21.png)
 
     Pada data password maka akan diperoleh satu password yang mana memiliki status 200 artinya password tersebut merupakan password admin yang telah dicek secara status internet.
 
 11. Hasil
 
-    ![Screenshot](../../image/task-2/22.png)
+    ![Screenshot](../image/task-2/22.png)
 
 
 ## KESIMPULAN
