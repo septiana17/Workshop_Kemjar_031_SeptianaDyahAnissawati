@@ -195,6 +195,55 @@ Pada tahap ini akan login ke halaman admin.
 
     ![Screenshot](../image/task-2/22.png)
 
+### E. Forged Feedback
+
+Memposting feedback dengan UserId lain
+
+1. Membuka Navbar > feedback customer
+
+    ![Screenshot](../image/task-2/23.png)
+
+    Pertama isi feedback terlebih dahulu.
+
+2. Membuka burpsuite > Intercept on
+
+    ![Screenshot](../image/task-2/24.png)
+
+    Setelah intercept on maka klik "submit" dan terlihat sukses mengirim feedback. 
+
+3. Membuka Proxy > HTTP History
+
+    ![Screenshot](../image/task-2/25.png)
+
+    Mencari History dengan response POST feedback API, disana terlihat bahwa feedback berhasil terkirim. Lalu setelah itu kirim ke repeater, di repeater kita akan menambahkan UserId namun sebelum itu kita harus mencari tahu bagaimana sistem mengirim UserId.
+
+4. Inspect Element
+
+    ![Screenshot](../image/task-2/26.png)
+
+    Mencari hidden UserId lalu menghapus "hidden" untuk menampilkan form input UserId.
+
+5. Mengisi form feedback kembali
+
+    ![Screenshot](../image/task-2/27.png)
+
+    Mengisi form feedback dengan menambahkan user id yang diinginkan, sebelum klik submit aktifkan terlebih dahulu intercept.
+
+6. Membuka Burpsuite > Intercept
+
+    ![Screenshot](../image/task-2/28.png)
+
+    Maka akan muncul data baru dengan penulisan UserId.
+
+7. Membuka Repeater
+
+    ![Screenshot](../image/task-2/29.png)
+
+    Menambahkan UserId lalu klik "send".
+
+8. Hasil
+
+    ![Screenshot](../image/task-2/30.png)
 
 ## KESIMPULAN
 
