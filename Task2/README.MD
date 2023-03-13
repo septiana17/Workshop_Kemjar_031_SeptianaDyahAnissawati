@@ -70,22 +70,27 @@ Oleh karena itu, pengguna disarankan untuk menggunakan Burp Suite saat mengakses
 ### A. Cek Kelengkapan
 
 1. Cek Versi Java
+
 ![Screenshot](../image/task-2/1.png)
 
 Pada sistem operasi saya sudah terinstal java versi 17 dengan bergitu minimum requirement sudah terpenuhi.
 
 2. Cek Burpsuite
+
 ![Screenshot](../image/task-2/2.png)
 
 Buka burpsuite yang sudah ada di sistem operasi.
 
 3. Jalankan OWASP 10 Juice Shop
+
 ![Screenshot](../image/task-2/3.png)
 
 4. Buka Burpsuite
+
 ![Screenshot](../image/task-2/4.png)
 
 5. Buka OWASP 10 Juice Shop
+
 ![Screenshot](../image/task-2/5.png)
 
 Pertama akan dilakukan ngetrace dari HTPP request, memilih proxy dan pilih HTPP history. Setelah itu buka browser dan membuka halaman juice shop (http://localhost:3000/)
