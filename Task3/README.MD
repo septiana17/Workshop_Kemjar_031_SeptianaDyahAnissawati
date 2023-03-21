@@ -47,3 +47,56 @@ Berikut adalah beberapa contoh dari cryptographic failures:
 3. Implementation Errors: Kesalahan dalam implementasi kriptografi dapat menyebabkan kerentanan, seperti backdoor atau bug yang dapat dimanfaatkan oleh penyerang.
 
 4. Random Number Generation: Kegagalan dalam penghasilan angka acak atau random number generation dapat membuat kunci enkripsi menjadi lemah dan mudah ditebak.
+
+## Nested Easter Egg
+
+1. Easter egg merupakan pesan tersembunyi yang telah disisipkan kedalam website. Pertama pilih Github untuk masuk ke direktori ftp.
+
+    ![Screenshot](../image/task-3/0.png)
+
+2. Setelah masuk ke github lalu menuju ke folder ftp dan pilih file eastere.egg
+
+    ![Screenshot](../image/task-3/1.png)
+
+    Copy file enskripsi dibawah
+
+3. Buka Cyber Chef
+
+    ![Screenshot](../image/task-3/2.png)
+
+4. Tambah base64 dan encryption ROT 13
+
+    ![Screenshot](../image/task-3/3.png)
+
+    Base64 dan ROT13 adalah dua jenis encoding atau teknik enkripsi sederhana yang digunakan untuk mengubah teks atau data menjadi bentuk yang sulit dibaca oleh manusia, namun masih dapat dibaca oleh mesin.
+
+    Base64 adalah metode encoding yang mengubah data menjadi bentuk 64 karakter ASCII yang berbeda. Proses encoding base64 mengambil data biner dan membaginya menjadi blok-blok 6 bit, lalu setiap blok diubah menjadi karakter ASCII yang sesuai. Keuntungan dari Base64 adalah bahwa dapat digunakan untuk mengirim data melalui jaringan yang tidak dapat mengirim karakter non-ASCII seperti gambar, file audio atau video.
+
+    ROT13 adalah jenis encoding sederhana yang mengubah setiap huruf dalam teks dengan huruf yang berada 13 posisi di belakangnya dalam abjad. Jika setelah 13 posisi huruf tidak cukup, maka pencarian akan dimulai kembali dari huruf awal. ROT13 biasanya digunakan untuk mengenkripsi pesan atau teks yang tidak sensitif secara rahasia.
+
+5. Masukkan output enkripsi dan tambahkan pada link localhost/3000
+
+    ![Screenshot](../image/task-3/orange.png)
+
+6. Hasil
+
+    ![Screenshot](../image/task-3/weird.png)
+
+## Weird Crypto (Cryptographic Issues)
+
+1. Membuka halaman juice-shop
+
+    ![Screenshot](../image/task-3/4.png)
+
+2. Klik sidebar -> Customer Feedback
+
+    ![Screenshot](../image/task-3/5.png)
+
+3. Pada menu Customer Feedback masukkan kata MD5 pada comment, masukkan rating lalu chaptcha.
+
+    ![Screenshot](../image/task-3/6.png)
+
+4. Hasil
+
+    ![Screenshot](../image/task-3/success.png)
+
