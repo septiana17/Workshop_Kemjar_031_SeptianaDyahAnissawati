@@ -82,6 +82,10 @@ Berikut adalah beberapa contoh dari cryptographic failures:
 
     ![Screenshot](../image/task-3/weird.png)
 
+### Kesimpulan
+
+Easter egg sendiri merujuk pada fitur yang tersembunyi dalam perangkat lunak atau aplikasi, yang tidak diumumkan atau didokumentasikan. Nested Easter Egg mengacu pada Easter Egg yang ditemukan di dalam Easter Egg yang lain. Dalam hal keamanan, jika nested Easter Egg tidak diidentifikasi dan diuji dengan baik, mereka dapat mengakibatkan risiko keamanan seperti kerentanan atau celah yang tidak diketahui dalam aplikasi atau sistem. Oleh karena itu, penting untuk memeriksa dan menguji semua fitur dalam perangkat lunak atau aplikasi untuk menemukan Easter Egg yang mungkin tersembunyi, termasuk yang bersifat nested.
+
 ## Weird Crypto (Cryptographic Issues)
 
 1. Membuka halaman juice-shop
@@ -99,4 +103,16 @@ Berikut adalah beberapa contoh dari cryptographic failures:
 4. Hasil
 
     ![Screenshot](../image/task-3/success.png)
+
+### Kesimpulan
+
+Weird Crypto tidak termasuk dalam daftar OWASP Top 10, karena bukan merupakan salah satu kategori dari 10 risiko keamanan aplikasi web yang paling umum terjadi. Namun, penggunaan algoritma kriptografi yang tidak standar atau tidak teruji dengan baik dapat menyebabkan kerentanan keamanan dalam aplikasi web dan dapat menyebabkan risiko keamanan yang serius. Oleh karena itu, masalah keamanan yang terkait dengan penggunaan weird crypto dapat termasuk dalam kategori A5 (Security Misconfiguration) dan A6 (Security-Related Code Quality Issues) dalam daftar OWASP Top 10. Dalam kategori ini, masalah keamanan yang terkait dengan konfigurasi dan kode berkualitas buruk dalam aplikasi web dapat menyebabkan kerentanan keamanan dan membuka pintu bagi serangan seperti serangan injeksi, penyusupan, dan peretasan.
+
+Masalah keamanan yang terkait dengan penggunaan weird crypto dapat termasuk dalam kategori A5 (Security Misconfiguration) dan A6 (Security-Related Code Quality Issues) dalam daftar OWASP Top 10 karena penggunaan algoritma kriptografi yang tidak standar atau tidak teruji dengan baik dapat menjadi bagian dari masalah konfigurasi atau kode yang berkualitas buruk dalam aplikasi web.
+
+Dalam kategori A5 (Security Misconfiguration), masalah keamanan terkait dengan konfigurasi aplikasi web yang tidak memadai atau tidak aman dapat menciptakan celah keamanan yang dapat dimanfaatkan oleh penyerang. Jika penggunaan weird crypto dilakukan dengan konfigurasi yang buruk atau tidak tepat, hal ini dapat menyebabkan celah keamanan dalam aplikasi web dan menyebabkan risiko keamanan yang serius.
+
+Sementara dalam kategori A6 (Security-Related Code Quality Issues), masalah keamanan terkait dengan kualitas kode yang buruk dalam aplikasi web dapat menyebabkan kerentanan keamanan dan membuka pintu bagi serangan seperti serangan injeksi, penyusupan, dan peretasan. Jika penggunaan weird crypto dilakukan dengan kode yang berkualitas buruk atau tidak tepat, hal ini dapat menyebabkan kerentanan keamanan dalam aplikasi web dan menyebabkan risiko keamanan yang serius.
+
+Dalam kedua kasus ini, masalah keamanan yang terkait dengan penggunaan weird crypto dapat membuka celah keamanan dalam aplikasi web dan dapat menyebabkan risiko keamanan yang serius, sehingga masalah ini harus diperhatikan dan diatasi dengan baik.
 
