@@ -2,7 +2,7 @@
 
 <h3 align="center">
     <b>Praktikum Keamanan Jaringan</b><br>
-    Cryptographic Failures (OWASP 10 Juice Shop)
+    Injection (OWASP 10 Juice Shop)
 </h3>
 <br>
 <p align="center">
@@ -33,86 +33,106 @@
 
 ## Laporan
 
-## Cryptographic Failures
-Cryptographic failures adalah kegagalan atau kerentanan dalam penggunaan teknik kriptografi untuk melindungi informasi atau data sensitif. Kegagalan ini bisa terjadi karena penggunaan algoritma yang lemah, pengaturan konfigurasi yang tidak tepat, atau kesalahan dalam implementasi.
+## Injection
 
-Kegagalan kriptografi dapat mengakibatkan kerugian yang signifikan, seperti pencurian identitas, pencurian data, dan pelanggaran privasi. Untuk menghindari kegagalan ini, sangat penting untuk memastikan bahwa sistem kriptografi diimplementasikan dengan benar dan selalu diperbarui untuk mengikuti standar keamanan terbaru.
+OWASP Juice Shop adalah sebuah aplikasi web yang dikembangkan oleh OWASP (Open Web Application Security Project) sebagai platform latihan dan pembelajaran untuk mengidentifikasi dan memahami celah keamanan dalam pengembangan aplikasi web. OWASP Top Ten adalah daftar sepuluh risiko keamanan aplikasi web yang paling kritis yang dirilis oleh OWASP.
 
-Berikut adalah beberapa contoh dari cryptographic failures:
+Injection merupakan salah satu dari sepuluh risiko keamanan tersebut. Injection terjadi ketika penyerang dapat memasukkan atau "menyuntikkan" kode berbahaya (misalnya, SQL, NoSQL, OS, atau LDAP) ke dalam sistem yang rentan melalui input yang tidak divalidasi atau disaring dengan baik. Dalam konteks OWASP Juice Shop, ini berarti penyerang dapat menyuntikkan kode berbahaya ke dalam aplikasi untuk mengakses data yang seharusnya tidak dapat diakses, mengubah data, atau bahkan mengontrol sistem.
 
-1. Key Management Failures: Kegagalan dalam manajemen kunci dapat membuat kunci enkripsi menjadi lemah atau mudah ditebak. Hal ini dapat memungkinkan pengguna yang tidak sah untuk membaca atau mengubah data yang dienkripsi.
+Sebagai contoh, SQL Injection adalah bentuk umum dari injection, di mana penyerang memasukkan perintah SQL berbahaya ke dalam input yang tidak divalidasi dengan benar. Jika sistem rentan terhadap serangan ini, perintah SQL yang disuntikkan dapat dieksekusi, memungkinkan penyerang mengakses, memodifikasi, atau menghapus data dalam database.
 
-2. Weak Encryption Algorithms: Penggunaan algoritma enkripsi yang lemah atau usang dapat memungkinkan penyerang untuk menguraikan data yang dienkripsi dengan mudah.
+Untuk mengurangi risiko injection, pengembang harus:
 
-3. Implementation Errors: Kesalahan dalam implementasi kriptografi dapat menyebabkan kerentanan, seperti backdoor atau bug yang dapat dimanfaatkan oleh penyerang.
+1. Menggunakan prepared statements atau parameterized queries untuk melindungi terhadap SQL Injection.
+2. Melakukan validasi input dengan benar dan membatasi karakter yang diperbolehkan untuk setiap input.
+3. Menggunakan fitur escaping yang tepat untuk mencegah eksekusi kode berbahaya.
+4. Menerapkan prinsip principle of least privilege, di mana setiap komponen sistem memiliki akses minimal yang diperlukan untuk menjalankan fungsinya.
+5. Secara berkala memeriksa dan memperbarui perangkat lunak dan pustaka yang digunakan untuk memastikan celah keamanan yang diketahui telah ditangani.
 
-4. Random Number Generation: Kegagalan dalam penghasilan angka acak atau random number generation dapat membuat kunci enkripsi menjadi lemah dan mudah ditebak.
+![Screenshot](../image/task-4/1.png)
 
-## Nested Easter Egg
+### Skenario 1 
+### String query = "SELECT \* FROM accounts WHERE custID='" + 
+request.getParameter("id") + " ' ";
 
-1. Easter egg merupakan pesan tersembunyi yang telah disisipkan kedalam website. Pertama pilih Github untuk masuk ke direktori ftp.
+Serangan injection yang mungkin terjadi pada kode ini adalah SQL Injection. Pada serangan ini, attacker dapat memanipulasi input parameter "id" untuk menyuntikkan kode SQL yang tidak sah ke dalam string query, seperti mengganti nilai "id" dengan "1' OR 1=1 --" yang akan mengubah string query menjadi "SELECT * FROM accounts WHERE custID='1' OR 1=1 --'", dan ini akan mengeksekusi perintah SQL yang tidak diinginkan.
 
-    ![Screenshot](../image/task-3/0.png)
+### Skenario 2
+### Query HQLQuery = session.createQuery("FROM accounts WHERE custID='" + request.getParameter("id") + " ' ");
+Serangan injection yang mungkin terjadi pada kode ini adalah HQL Injection. Pada serangan ini, attacker dapat memanipulasi input parameter "id" untuk menyuntikkan kode HQL yang tidak sah ke dalam query, seperti mengganti nilai "id" dengan "1' OR 1=1 --" yang akan mengubah query menjadi "FROM accounts WHERE custID='1' OR 1=1 --'", dan ini akan mengeksekusi query HQL yang tidak diinginkan. Dalam kedua skenario , penyerang mengubah nilai parameter 'id' di browser mereka untuk mengirim: 'UNION SLEEP(10);--
+http://example.com/app/accountView?id=' UNION SELECT SLEEP(10);--
+attacker mencoba melakukan serangan SQL Injection dengan memasukkan payload ' UNION SELECT SLEEP(10);-- ke dalam parameter "id". Payload ini akan menggabungkan query asli dengan query yang ditambahkan oleh attacker, yaitu SELECT SLEEP(10), yang akan menunda eksekusi query sebelumnya selama 10 detik. Tanda "--" digunakan untuk mengakhiri query asli dan mengabaikan karakter lain yang mungkin ada pada query. Ini mengubah arti dari kedua Query untuk mengembalikan semua rekaman dari tabel akun. Serangan yang lebih berbahaya dapat mengubah atau menghapus data atau bahkan menjalankan prosedur tersimpan.Untuk mencegah serangan injeksi, pengembang harus menerapkan praktik pengkodean yang aman dan menggunakan kueri berparameter atau pernyataan yang disiapkan untuk memvalidasi dan membersihkan input pengguna. Selain itu, validasi masukan dan penyandian keluaran harus dilakukan untuk memastikan bahwa masukan 
+pengguna diformat dan ditampilkan dengan benar untuk mencegah serangan skrip lintas situs (XSS). Juga disarankan untuk menggunakan alat seperti firewall aplikasi web (WAF) dan pemindai kerentanan untuk mengidentifikasi dan mengurangi potensi kerentanan injeksi.
 
-2. Setelah masuk ke github lalu menuju ke folder ftp dan pilih file eastere.egg
+## Login Admin
 
-    ![Screenshot](../image/task-3/1.png)
+1. Masuk ke halaman Juice Shop dan lakukan login admin
 
-    Copy file enskripsi dibawah
+    ![Screenshot](../image/task-4/2.png)
 
-3. Buka Cyber Chef
+    Pertama-tama masukkan email dan password terlebih dahulu.
 
-    ![Screenshot](../image/task-3/2.png)
+2. Check menu Proxy -> HTTP-history
 
-4. Tambah base64 dan encryption ROT 13
+    ![Screenshot](../image/task-4/3.png)
 
-    ![Screenshot](../image/task-3/3.png)
+    Terlihat bahwa email dan password yang dimasukkan tadi tidak dapat masuk ke halaman admin, ada keterangan email or password invalid.
 
-    Base64 dan ROT13 adalah dua jenis encoding atau teknik enkripsi sederhana yang digunakan untuk mengubah teks atau data menjadi bentuk yang sulit dibaca oleh manusia, namun masih dapat dibaca oleh mesin.
+3. Masuk ke halaman Repeater
 
-    Base64 adalah metode encoding yang mengubah data menjadi bentuk 64 karakter ASCII yang berbeda. Proses encoding base64 mengambil data biner dan membaginya menjadi blok-blok 6 bit, lalu setiap blok diubah menjadi karakter ASCII yang sesuai. Keuntungan dari Base64 adalah bahwa dapat digunakan untuk mengirim data melalui jaringan yang tidak dapat mengirim karakter non-ASCII seperti gambar, file audio atau video.
+    ![Screenshot](../image/task-4/4.png)
 
-    ROT13 adalah jenis encoding sederhana yang mengubah setiap huruf dalam teks dengan huruf yang berada 13 posisi di belakangnya dalam abjad. Jika setelah 13 posisi huruf tidak cukup, maka pencarian akan dimulai kembali dari huruf awal. ROT13 biasanya digunakan untuk mengenkripsi pesan atau teks yang tidak sensitif secara rahasia.
+4. Memodifikasi request di Repeater
 
-5. Masukkan output enkripsi dan tambahkan pada link localhost/3000
+    ![Screenshot](../image/task-4/5.png)
 
-    ![Screenshot](../image/task-3/orange.png)
+    Menambahkan email 'admin' menjadi "admin' or 1=1--" lalu mendapatkan token beserta email asli dari admin juice shop.
+
+5. Login user dengan email modifikasi
+
+    ![Screenshot](../image/task-4/6.png)
 
 6. Hasil
 
-    ![Screenshot](../image/task-3/weird.png)
+    ![Screenshot](../image/task-4/7.png)
 
-### Kesimpulan
 
-Easter egg sendiri merujuk pada fitur yang tersembunyi dalam perangkat lunak atau aplikasi, yang tidak diumumkan atau didokumentasikan. Nested Easter Egg mengacu pada Easter Egg yang ditemukan di dalam Easter Egg yang lain. Dalam hal keamanan, jika nested Easter Egg tidak diidentifikasi dan diuji dengan baik, mereka dapat mengakibatkan risiko keamanan seperti kerentanan atau celah yang tidak diketahui dalam aplikasi atau sistem. Oleh karena itu, penting untuk memeriksa dan menguji semua fitur dalam perangkat lunak atau aplikasi untuk menemukan Easter Egg yang mungkin tersembunyi, termasuk yang bersifat nested.
+## Login Bender
 
-## Weird Crypto (Cryptographic Issues)
+1. Buka terminal lalu burpsuite dan browser untuk mengakses halaman juice shop
 
-1. Membuka halaman juice-shop
+2. Masuk ke burpsuite Proxy -> HTTP-History untuk melihat hasil request dan response /rest/admin/application-configuration
 
-    ![Screenshot](../image/task-3/4.png)
+    ![Screenshot](../image/task-4/8.png)
 
-2. Klik sidebar -> Customer Feedback
+    Response tersebut memberikan informasi terkait website juice-shop, informasi tersebut antara lain domain email dari akun yang ada dalam OWASP Juice Shop.
 
-    ![Screenshot](../image/task-3/5.png)
+3. Login juice shop menggunakan email bender@juice-sh.op dengan password random
 
-3. Pada menu Customer Feedback masukkan kata MD5 pada comment, masukkan rating lalu chaptcha.
+    ![Screenshot](../image/task-4/9.png)
 
-    ![Screenshot](../image/task-3/6.png)
+4. Masuk ke Proxy -> HTTP History
 
-4. Hasil
+    ![Screenshot](../image/task-4/10.png)
 
-    ![Screenshot](../image/task-3/success.png)
+5. Menyimpan baris data request ke file txt
 
-### Kesimpulan
+    ![Screenshot](../image/task-4/11.png)
 
-Weird Crypto tidak termasuk dalam daftar OWASP Top 10, karena bukan merupakan salah satu kategori dari 10 risiko keamanan aplikasi web yang paling umum terjadi. Namun, penggunaan algoritma kriptografi yang tidak standar atau tidak teruji dengan baik dapat menyebabkan kerentanan keamanan dalam aplikasi web dan dapat menyebabkan risiko keamanan yang serius. Oleh karena itu, masalah keamanan yang terkait dengan penggunaan weird crypto dapat termasuk dalam kategori A5 (Security Misconfiguration) dan A6 (Security-Related Code Quality Issues) dalam daftar OWASP Top 10. Dalam kategori ini, masalah keamanan yang terkait dengan konfigurasi dan kode berkualitas buruk dalam aplikasi web dapat menyebabkan kerentanan keamanan dan membuka pintu bagi serangan seperti serangan injeksi, penyusupan, dan peretasan.
+6. SQL MAP
 
-Masalah keamanan yang terkait dengan penggunaan weird crypto dapat termasuk dalam kategori A5 (Security Misconfiguration) dan A6 (Security-Related Code Quality Issues) dalam daftar OWASP Top 10 karena penggunaan algoritma kriptografi yang tidak standar atau tidak teruji dengan baik dapat menjadi bagian dari masalah konfigurasi atau kode yang berkualitas buruk dalam aplikasi web.
+    ![Screenshot](../image/task-4/12.png)
 
-Dalam kategori A5 (Security Misconfiguration), masalah keamanan terkait dengan konfigurasi aplikasi web yang tidak memadai atau tidak aman dapat menciptakan celah keamanan yang dapat dimanfaatkan oleh penyerang. Jika penggunaan weird crypto dilakukan dengan konfigurasi yang buruk atau tidak tepat, hal ini dapat menyebabkan celah keamanan dalam aplikasi web dan menyebabkan risiko keamanan yang serius.
+    ![Screenshot](../image/task-4/13.png)
 
-Sementara dalam kategori A6 (Security-Related Code Quality Issues), masalah keamanan terkait dengan kualitas kode yang buruk dalam aplikasi web dapat menyebabkan kerentanan keamanan dan membuka pintu bagi serangan seperti serangan injeksi, penyusupan, dan peretasan. Jika penggunaan weird crypto dilakukan dengan kode yang berkualitas buruk atau tidak tepat, hal ini dapat menyebabkan kerentanan keamanan dalam aplikasi web dan menyebabkan risiko keamanan yang serius.
+7. Send to Reepeater
 
-Dalam kedua kasus ini, masalah keamanan yang terkait dengan penggunaan weird crypto dapat membuka celah keamanan dalam aplikasi web dan dapat menyebabkan risiko keamanan yang serius, sehingga masalah ini harus diperhatikan dan diatasi dengan baik.
+    ![Screenshot](../image/task-4/14.png)
 
+    Melakukan penambahan karakter setelah email bender yaitu '-- yang merubah response menjadi 200
+
+8. Hasil
+
+    ![Screenshot](../image/task-4/15.png)
+
+    Login dengan menggunakan email penambahan karakter dan random password maka akan terlihat dapat masuk ke halaman bender di juice shop.
