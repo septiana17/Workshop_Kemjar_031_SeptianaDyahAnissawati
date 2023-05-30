@@ -136,3 +136,21 @@ pengguna diformat dan ditampilkan dengan benar untuk mencegah serangan skrip lin
     ![Screenshot](../image/task-4/15.png)
 
     Login dengan menggunakan email penambahan karakter dan random password maka akan terlihat dapat masuk ke halaman bender di juice shop.
+
+## SOAL
+
+1. Contoh form yang mengimplementasikan input sanitation menghindari input karakter yang mengandung sql injeksi
+Jawab :
+- Form pendaftaran / register pasti terdapat beberapa imputan seperti nama, pengguna, kata sandi, alamat, email, dll, lalu menjalani proses sanitasi sebelum disimpan kedalam database. Fungsi sanitasi disediakan oleh framework atau library seperti `htmlspecialchars()` atau `filter_input()` dalam PHP, untuk membersihkan karakter khusus yang dapat digunakan dalam serangan SQL injection.
+- Form pencarian/search, komentar/pengumuman dan URL parameter, jika pengguna dapat mengirim komentar atau pengumuman, pastikan untuk membersihkan atau melarang menggunakan karakter khusus seperti tanda kutip tunggal ('), tanda kutip ganda ("), atau karakter escape () yang dapat digunakan dalam serangan SQL injection.
+
+2. Apa yang terjadi ketika injeksi sql diinputkan didalam database
+Jawab :
+- manipulasi data
+- kerusakan struktur database
+- downtime dan ketidak stabilan sistem
+
+3. Perbedaan injection dan sql injection, injection - lebih luas contohnya 
+Jawab :
+Injection merupakan serangan yang dilakukan dengan memasukkan kode yang tidak aman atau tidak diharapkan ke dalam inputan dari sebuah aplikasi.
+SQL Injection adalah serangan injection yang spesifik terhadap aplikasi atau sistem yang menggunakan bahasa SQL untuk berinteraksi dengan database.
