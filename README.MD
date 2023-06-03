@@ -13,3 +13,5 @@ This repository is about homework for the Theory and Practical Network Security 
 [Video Broken Access Control](https://drive.google.com/file/d/1-BOkJGg5G2QR7cpzlmtmZaHuE38LdrCZ/view?usp=share_link)
 
 [Video Cryptographic Failures](https://drive.google.com/file/d/1-DEno8DiTKt04n9y7VzCVgy96aFF-DMD/view?usp=sharing)
+
+[Video Praktikum Kemanan Jaringan](https://drive.google.com/drive/folders/1Dp0PYbuwKfM34pbiMiGeTPeclaHBcVvL?usp=sharing)
