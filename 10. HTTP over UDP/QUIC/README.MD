@@ -6,7 +6,7 @@
 </h3>
 <br>
 <p align="center">
-  <img src="../image/Logo_PENS.png" alt="Size Limit CLI" width="300">
+  <img src="../image/Logo_PENS.png" alt="" width="300">
 </p>
 <br>
 <p align="center">
@@ -57,35 +57,33 @@ sebagian besar pilihan desain SPDY untuk mewarisi manfaatnya.
 
 1. Multiplexing 
 
-![Screenshot](../image/task-11/a10-2.jpg)
+    ![Screenshot](../image/task-11/a10-2.jpg)
 
-Gambar 2 Multiplexing
+    Gambar 2 Multiplexing
 
-QUIC menggandakan beberapa aliran QUIC melalui koneksi UDp yang sama. Pada gambar diatas menunjukkan bahwa dengan HTTP/1.1 client hanya dapat mengambil satu sumber daya pada satu waktu (bahkan jika sumber daya tersebut disalurkan) sedangankan dengan QUIC client dapat mengirim beberapa permintaan HTTP dan menerima beberapa tanggapan melalui soket UDP yang sama. Browser web HTTP/1.1 berupaya meminimalkan dampak head of line blocking (HoL) dengan membuka beberapa koneksi HTTP bersamaan, biasanya hingga enam. Berikut fitur multiplexing QUIC telah diwarisi dari SPDY dan menyediakan :
+    QUIC menggandakan beberapa aliran QUIC melalui koneksi UDp yang sama. Pada gambar diatas menunjukkan bahwa dengan HTTP/1.1 client hanya dapat mengambil satu sumber daya pada satu waktu (bahkan jika sumber daya tersebut disalurkan) sedangankan dengan QUIC client dapat mengirim beberapa permintaan HTTP dan menerima beberapa tanggapan melalui soket UDP yang sama. Browser web HTTP/1.1 berupaya meminimalkan dampak head of line blocking (HoL) dengan membuka beberapa koneksi HTTP bersamaan, biasanya hingga enam. Berikut fitur multiplexing QUIC telah diwarisi dari SPDY dan menyediakan :
 
-1. Prioritas diantara aliran QUIC
-2. Lalu lintas melalui koneksi UDP yang sama
-3. Kompresi header HTTP melalui koneksi yang sama
+        a. Prioritas diantara aliran QUIC
+        b. Lalu lintas melalui koneksi UDP yang sama
+        c. Kompresi header HTTP melalui koneksi yang sama
 
-Dengan menggunakan UDP, QUIC dapat menghilangkan masalah HoL yang memengaruhi aliran multipleks SPDY, misalnya dalam gambar diatas jika paket n.1 hilang dan semua paket lainnya diterima, semua paket harus menunggu hingga paket yang hilang ditransmisikan ulang sebelum TCP dapat mengirimkan data ke aplikasi (TCP tidak mengijinkan pengiriman tidak sesuai pesanan); disisi lain UDP dapat mengirimkan semua paket yang diterima ke aplikasi tanpa pengiriman ulang.
+    Dengan menggunakan UDP, QUIC dapat menghilangkan masalah HoL yang memengaruhi aliran multipleks SPDY, misalnya dalam gambar diatas jika paket n.1 hilang dan semua paket lainnya diterima, semua paket harus menunggu hingga paket yang hilang ditransmisikan ulang sebelum TCP dapat mengirimkan data ke aplikasi (TCP tidak mengijinkan pengiriman tidak sesuai pesanan); disisi lain UDP dapat mengirimkan semua paket yang diterima ke aplikasi tanpa pengiriman ulang.
 
 2. Latensi dan Keamanan Pengaktifan Koneksi
 
-![Screenshot](../image/task-11/a10-2.jpg)
+    ![Screenshot](../image/task-11/a10-2.jpg)
 
-Gambar 3 Latensi Pengaktifan
+    Gambar 3 Latensi Pengaktifan
 
-Pada gambar diatas menunjukkan waktu yang diperlukan untuk menyiapkan koneksi TCP : dibutuhkan satu RTT untuk jabat tangan dan setidaknya satu atau dua RTT tambahan untuk koneksi terenkripsi melalui TLS. Ketika  QUIC digunakan : waktu yang dibutuhkan untuk menyiapkan koneksi paling banyak satu RTT, dalam kasus client telah berbicara dengan server sebelumnya, latensi startup membutuhkan RTT nol dalam kasus koneksi terenkripsi (QUIC menggunakan algortime enkripsi sendiri bernama QUIC-Crypto). QUIC-Crypto mendeskripsi paket secara mandiri, hal ini menghindari ketergantungan decoding serial yang akan merusak kemampuan QUIC untuk menyediakan out-oforder untuk mengurangi HoL.
+    Pada gambar diatas menunjukkan waktu yang diperlukan untuk menyiapkan koneksi TCP : dibutuhkan satu RTT untuk jabat tangan dan setidaknya satu atau dua RTT tambahan untuk koneksi terenkripsi melalui TLS. Ketika  QUIC digunakan : waktu yang dibutuhkan untuk menyiapkan koneksi paling banyak satu RTT, dalam kasus client telah berbicara dengan server sebelumnya, latensi startup membutuhkan RTT nol dalam kasus koneksi terenkripsi (QUIC menggunakan algortime enkripsi sendiri bernama QUIC-Crypto). QUIC-Crypto mendeskripsi paket secara mandiri, hal ini menghindari ketergantungan decoding serial yang akan merusak kemampuan QUIC untuk menyediakan out-oforder untuk mengurangi HoL.
 
 3. Koreksi Kesalahan Maju
 
-Fitur lain yang menarik dari QUIC adalah modul Forward Error 
-Correction (FEC) yang mengatasi kehilangan paket. Deskripsi protokol QUIC berdasarkan dokumentasi resmi dan analisis basis kode Chromium mengikuti di bawah ini3 .Manfaat dari modul FEC bisa sangat efektif dalam mengurangi HoL lebih lanjut melalui aliran QUIC tunggal dengan segera memulihkan paket yang hilang, terutama dalam kasus RTT tinggi di mana transmisi ulang dapat sangat mempengaruhi latensi HOL. Ini bekerja sebagai berikut: satu paket FEC dihitung pada akhir rangkaian paket sebagai jumlah XOR dari muatan paket; paket-paket ini membentuk "Grup FEC" (FG). Misalnya FG memiliki ukuran 4, jika tiga paket data ditambah paket FEC dikirim: dengan cara ini paling banyak satu kehilangan paket dalam grup FEC dapat dipulihkan. Jelas bahwa ukuran grup FEC memainkan peran yang luar biasa: FG kecil menyiratkan redundansi tinggi dengan biaya bandwidth, sedangkan FG besar menyiratkan redundansi rendah dengan biaya bandwidth rendah. Keputusan tentang ukuran FG masih dianggap sebagai isu terbuka.
+    Fitur lain yang menarik dari QUIC adalah modul Forward Error Correction (FEC) yang mengatasi kehilangan paket. Deskripsi protokol QUIC berdasarkan dokumentasi resmi dan analisis basis kode Chromium mengikuti di bawah ini3 .Manfaat dari modul FEC bisa sangat efektif dalam mengurangi HoL lebih lanjut melalui aliran QUIC tunggal dengan segera memulihkan paket yang hilang, terutama dalam kasus RTT tinggi di mana transmisi ulang dapat sangat mempengaruhi latensi HOL. Ini bekerja sebagai berikut: satu paket FEC dihitung pada akhir rangkaian paket sebagai jumlah XOR dari muatan paket; paket-paket ini membentuk "Grup FEC" (FG). Misalnya FG memiliki ukuran 4, jika tiga paket data ditambah paket FEC dikirim: dengan cara ini paling banyak satu kehilangan paket dalam grup FEC dapat dipulihkan. Jelas bahwa ukuran grup FEC memainkan peran yang luar biasa: FG kecil menyiratkan redundansi tinggi dengan biaya bandwidth, sedangkan FG besar menyiratkan redundansi rendah dengan biaya bandwidth rendah. Keputusan tentang ukuran FG masih dianggap sebagai isu terbuka.
 
 4. Pengidentifikasi Koneksi
 
-Koneksi QUIC secara unik diidentifikasi oleh CID (Pengidentifikasi Koneksi) pada lapisan aplikasi dan bukan oleh pasangan alamat IP dan nomor port. Keuntungan pertama adalah, karena CID tidak didasarkan pada alamat IP, setiap transfer antara dua jaringan dapat ditangani secara transparan oleh QUIC tanpa perlu membangun kembali koneksi. Selain itu, CID berguna dalam kasus NAT unbinding, saat memulihkan 
-koneksi, sepasang alamat IP baru biasanya diperlukan. Akhirnya dengan CID, QUIC dapat memberikan dukungan asli ke multi-jalur; misalnya perangkat seluler dapat menggunakan semua koneksi jaringan untuk CID yang sama.
+    Koneksi QUIC secara unik diidentifikasi oleh CID (Pengidentifikasi Koneksi) pada lapisan aplikasi dan bukan oleh pasangan alamat IP dan nomor port. Keuntungan pertama adalah, karena CID tidak didasarkan pada alamat IP, setiap transfer antara dua jaringan dapat ditangani secara transparan oleh QUIC tanpa perlu membangun kembali koneksi. Selain itu, CID berguna dalam kasus NAT unbinding, saat memulihkan koneksi, sepasang alamat IP baru biasanya diperlukan. Akhirnya dengan CID, QUIC dapat memberikan dukungan asli ke multi-jalur; misalnya perangkat seluler dapat menggunakan semua koneksi jaringan untuk CID yang sama.
 
 Sumber :
 https://www.researchgate.net/publication/280547975_HTTP_over_UDP_an_experimental_investigation_of_QUIC
