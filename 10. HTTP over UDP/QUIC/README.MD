@@ -38,7 +38,7 @@
 
 Dibangun diatas UDP, protokol QUIC bari-baru ini dibakukan dengan tujuan utamanya menggantikan model TCP plus TLS plus HTTP/2 secara bertahap. Dalam HTTP/3 dirancang untuk mengekploitasi fitur QUIC, termasuk pengurangan waktu pembuatan koneksi, multiplexing tanpa pemblokiran garis depan, keamanan end-to-end yang selalu dienkripsi, dan lain-lain. Tujuan utama dari protokol lapisan transport QUIC adalah untuk meningkatkan kinerja karena meskipun model HTTP plus TLS melayani web dengan baik sekitar 15 tahun, menjadi jelas bahwa itu tidak dapat lagi mempertahankan permintaan bandwidth dan peka latensi yang muncul. Aplikasi web, misalnya salah satu masalah utama HTTP/1.1 adalah pemblokiran Head-of-Line (HoL) HTTP, yang menyebabkan peningkatan penundaan respons ketika permintaan HTTP dapat menunda semua permintaan sub-urutan dalam koneksi TCP yang sama.
 
-![Screenshot](../image/task-11/a10-1.png)
+![Screenshot](../image/task-11/a10-1.jpg)
 
 Gambar 1 HTTP, SPDY, dan QUIC
 
@@ -57,7 +57,7 @@ sebagian besar pilihan desain SPDY untuk mewarisi manfaatnya.
 
 1. Multiplexing 
 
-![Screenshot](../image/task-11/a10-2.png)
+![Screenshot](../image/task-11/a10-2.jpg)
 
 Gambar 2 Multiplexing
 
@@ -71,7 +71,7 @@ Dengan menggunakan UDP, QUIC dapat menghilangkan masalah HoL yang memengaruhi al
 
 2. Latensi dan Keamanan Pengaktifan Koneksi
 
-![Screenshot](../image/task-11/a10-2.png)
+![Screenshot](../image/task-11/a10-2.jpg)
 
 Gambar 3 Latensi Pengaktifan
 
