@@ -32,6 +32,8 @@
 
 ## Laporan
 
+[VIDEO DEMO](https://drive.google.com/drive/folders/1Dp0PYbuwKfM34pbiMiGeTPeclaHBcVvL?usp=sharing)
+
 ## Security Logging and Monitoring Failures
 
 Security Logging and Monitoring Failures merupakan salah satu kerentanan keamanan pada aplikasi web yang terjadi ketika sistem atau aplikasi web tidak memiliki mekaniesme pengawasan dan pencatatan yang memadai untuk aktivitas pengguna dan akses sistem. Hal tersebut menyebabkan para penyerang dapat melakukan serangan yang tidak terdeteksi atau menghindari pengawasan oleh security profesional.

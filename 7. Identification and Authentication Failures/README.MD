@@ -32,6 +32,8 @@
 
 ## Laporan
 
+[VIDEO DEMO](https://drive.google.com/drive/folders/1Dp0PYbuwKfM34pbiMiGeTPeclaHBcVvL?usp=sharing)
+
 ## Identification and Authentication Failures
 
 Identification and Authentication Failures diartikan sebagai kegagalan dalam mengidentifikasi dan memverifikasi seseorang atau sesuatu dengan benar. Misalnya hal yang terjadi dengan sistem komputer dan aplikasi. Saat akan mengakses suatu sistem atau aplikasi harus mengidentifikasi diri sendiri dan membuktikan bahwa kamu adalah pengguna yang sah. Hal ini bisa dilakukan dengan menggunakan username dan password, pin, aplikasi autentikator atau dengan menggunakan biometrik.

@@ -33,6 +33,8 @@
 
 ## Laporan
 
+[VIDEO DEMO](https://drive.google.com/file/d/1-BOkJGg5G2QR7cpzlmtmZaHuE38LdrCZ/view?usp=share_link)
+
 ## Broken Access Control
 ![Screenshot](../image/task-2/0.png)
 

@@ -33,6 +33,8 @@
 
 ## Laporan
 
+[VIDEO DEMO](https://drive.google.com/drive/folders/1Dp0PYbuwKfM34pbiMiGeTPeclaHBcVvL?usp=sharing)
+
 ## Injection
 
 OWASP Juice Shop adalah sebuah aplikasi web yang dikembangkan oleh OWASP (Open Web Application Security Project) sebagai platform latihan dan pembelajaran untuk mengidentifikasi dan memahami celah keamanan dalam pengembangan aplikasi web. OWASP Top Ten adalah daftar sepuluh risiko keamanan aplikasi web yang paling kritis yang dirilis oleh OWASP.

@@ -32,6 +32,8 @@
 
 ## Laporan
 
+[VIDEO DEMO](https://drive.google.com/drive/folders/1Dp0PYbuwKfM34pbiMiGeTPeclaHBcVvL?usp=sharing)
+
 ## Reverse Proxy
 
 Dalam komputasi, saat ketika mulai mengakses situs web, informasi dipertukarkan dari orang atau client ke server. Dalam hal ini, proses client mengirimkan permintaan ke server untuk mengakses situs web. Server kemudian mengirimkan respons ke client. Proses pertukaran data antara client dan server diharapkan dapat berjalan lancar tanpa menemui kendala teknis maupun non teknis, seperti loading website yang memakan waktu lama untuk melakukan penyerangan. Dengan bantuan proxy terbalik, pertukaran data antara client dan server berjalan lancar. Proxy terbalik berada di antara client dan server. Proxy terbalik juga dapat melindungi proses pertukaran data dari serangan DDoS. Biasanya, proxy terbalik diimplementasikan di server web.

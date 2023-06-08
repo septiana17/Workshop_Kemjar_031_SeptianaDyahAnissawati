@@ -30,8 +30,9 @@
 </p>
 <br>
 
-
 ## Laporan
+
+[VIDEO DEMO](https://drive.google.com/file/d/1-DEno8DiTKt04n9y7VzCVgy96aFF-DMD/view?usp=sharing)
 
 ## Cryptographic Failures
 Cryptographic failures adalah kegagalan atau kerentanan dalam penggunaan teknik kriptografi untuk melindungi informasi atau data sensitif. Kegagalan ini bisa terjadi karena penggunaan algoritma yang lemah, pengaturan konfigurasi yang tidak tepat, atau kesalahan dalam implementasi.
