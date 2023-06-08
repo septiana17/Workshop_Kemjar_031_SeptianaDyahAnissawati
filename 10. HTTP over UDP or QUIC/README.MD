@@ -71,7 +71,7 @@ sebagian besar pilihan desain SPDY untuk mewarisi manfaatnya.
 
 2. Latensi dan Keamanan Pengaktifan Koneksi
 
-    ![Screenshot](../image/task-11/a10-2.jpg)
+    ![Screenshot](../image/task-11/a10-3.jpg)
 
     Gambar 3 Latensi Pengaktifan
 
