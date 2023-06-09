@@ -58,3 +58,9 @@ Pada kenyataannya internet telah menjadi bagian penting dalam kehidupan, jaringa
 Namun, Network Operators tidak hanya bertanggung jawab untuk memelihara dan mengoperasikan jaringan Internet. Mereka juga harus mematuhi peraturan yang ditetapkan oleh organisasi seperti Internet Corporation for Assigned Names and Numbers (ICANN), yang bertanggung jawab untuk mengatur sistem nama domain dan memastikan bahwa alamat website dan email unik di seluruh dunia.
 
 Dalam era digital yang semakin berkembang, peran Network Operators semakin penting untuk memastikan keamanan dan kehandalan jaringan Internet. Mereka harus memastikan bahwa infrastruktur mereka terus diperbarui dan diperkuat, serta mematuhi peraturan yang ditetapkan oleh organisasi seperti ICANN. Dengan adanya Network Operators yang bertanggung jawab, kita dapat merasakan manfaat dari kemajuan teknologi dan terus terhubung dengan dunia yang semakin terhubung.
+
+## Hasil
+
+<p align="center">
+  <img src="../image/modul5.png" alt="Size Limit CLI" width="300">
+</p>
